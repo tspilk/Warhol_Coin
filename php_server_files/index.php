@@ -94,6 +94,10 @@ while ($round_m < 10)
     }
 }
 
+date_default_timezone_set('America/Los_Angeles');
+$timestamp = 'Updated: '.date('H:i');
+
+
 $icon_id = $icons[$forecast->currently->icon];
 $response[1] = array('b', $icon_id);
 $response[2] = array('s', round($forecast->currently->temperature));
@@ -101,4 +105,5 @@ $response[3] = array('s', round($forecast->daily->data[0]->temperatureMax));
 $response[4] = array('s', round($forecast->daily->data[0]->temperatureMin));
 $response[5] = array('s', intval($ltc_price));
 $response[6] = array('s', intval($coinbase_price));
+$response[7] = $timestamp;
 print json_encode($response);
