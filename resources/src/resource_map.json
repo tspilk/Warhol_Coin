@@ -7,6 +7,12 @@
             "file": "fonts/BebasNeue.ttf"
         },
         {
+            "characterRegex": "[: a-zA-Z0-9!$*\-]",
+            "defName": "HIGH_LOW_14",
+            "type": "font",
+            "file": "fonts/BebasNeue.ttf"
+        },        
+        {
             "defName": "ICON_HTTP_ERROR",
             "type": "png",
             "file": "images/HTTP_ERROR.png"
