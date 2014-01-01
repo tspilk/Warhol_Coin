@@ -132,6 +132,15 @@ GET THE LTC PRICE
 		weather_layer_set_ltc(&weather_layer, ltc_tuple->value->int16);
 	}
 	
+/*
+GET THE TIMESTAMP	
+***************************/
+	Tuple* time_tuple = dict_find(received, WEATHER_KEY_TIME);
+	if(time_tuple) {
+		static char str0[30];
+		memcpy(str0, time_tuple->value->cstring, time_tuple->length); 
+		weather_layer_set_time(&weather_layer, str0);
+	}
 	
 	link_monitor_handle_success();
 }
