@@ -10,6 +10,7 @@ typedef struct {
 	
 	TextLayer btc_layer;
 	TextLayer ltc_layer;
+	TextLayer time_layer;
 	
 	TextLayer lowvalue_layer;
 	TextLayer lowlabel_layer;
@@ -23,6 +24,7 @@ typedef struct {
 	
 	char btc_str[10];
 	char ltc_str[10];
+	char time_str[20];
 	
 } WeatherLayer;
 
@@ -51,5 +53,6 @@ void weather_layer_set_low(WeatherLayer* weather_layer, int16_t low);
 
 void weather_layer_set_ltc(WeatherLayer* weather_layer, int16_t ltc);
 void weather_layer_set_btc(WeatherLayer* weather_layer, int16_t btc);
+void weather_layer_set_time(WeatherLayer* weather_layer, char* timestamp);
 
 #endif
