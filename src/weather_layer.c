@@ -71,7 +71,13 @@ void weather_layer_init(WeatherLayer* weather_layer, GPoint pos) {
 	text_layer_set_font(&weather_layer->btc_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_PRICES_22)));
 	layer_add_child(&weather_layer->layer, &weather_layer->btc_layer.layer);
 	
-
+	//Time_layer	
+	text_layer_init(&weather_layer->time_layer, GRect(0, 45, 144, 14)); /* LEFT TOP WIDE HIGH */
+	text_layer_set_background_color(&weather_layer->time_layer, GColorClear);
+	text_layer_set_text_color(&weather_layer->time_layer, GColorWhite);
+	text_layer_set_text_alignment(&weather_layer->time_layer, GTextAlignmentCenter);
+	text_layer_set_font(&weather_layer->time_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_HIGH_LOW_14)));
+	layer_add_child(&weather_layer->layer, &weather_layer->time_layer.layer);
 	
 	
 	// Note absence of icon layer
@@ -108,6 +114,13 @@ void weather_layer_set_ltc(WeatherLayer* weather_layer, int16_t ltc) {
 	int ltc_pos = strlen(weather_layer->ltc_str);
 	memcpy(&weather_layer->ltc_str[ltc_pos], " ", 3);
 	text_layer_set_text(&weather_layer->ltc_layer, weather_layer->ltc_str);
+	layer_mark_dirty(&weather_layer->layer);
+	
+}
+
+//TIME
+void weather_layer_set_time(WeatherLayer* weather_layer, char* timestamp) {
+	text_layer_set_text(&weather_layer->time_layer, timestamp);
 	layer_mark_dirty(&weather_layer->layer);
 	
 }
