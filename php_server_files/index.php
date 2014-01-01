@@ -50,6 +50,7 @@ $payload[2] = $payload[2] / 10000;
 
 $forecast_url='https://api.forecast.io/forecast/'.$api_key.'/'.$payload[1].','.$payload[2].'?units='.$payload[3].'&exclude=hourly,minutely,alerts';
 $litecoin_url='https://www.litecoinpool.org/api?api_key=YOUR API HERE';//ENTER YOUR API FROM LITECOINPOOL
+//$litecoin_url='https://btc-e.com/api/2/ltc_usd/ticker';
 $coinbase_url='https://coinbase.com/api/v1/prices/buy';
 
 $forecast = json_decode(get_data($forecast_url)); 
@@ -73,6 +74,7 @@ $icons = array(
     'partly-cloudy-night' => 9
 );
 $ltc_price = $coin->market->ltc_usd;
+//$ltc_price = $coin->ticker->last;
 $btc_price = $coin->market->btc_usd;
 $coinbase_price = $coinbase->total->amount;
 $sunset = $forecast->daily->data[0]->sunsetTime;
