@@ -1,3 +1,5 @@
+# See https://github.com/tspilk/find-timezone for latest revision of this code #
+
 import argparse
 
 # -- Command Line Options -- #
