@@ -42,7 +42,7 @@ $payload = json_decode(file_get_contents('php://input'), true);
 /*
 if(!$payload) 
 {
- $payload = json_decode('{"1": 411157,"2": -960238,"3": "us"}', true);
+ $payload = json_decode('{"1": 411157,"2": -960238,"3": "us"}', true); // Use this to set a 'default' location
 }
 */
 $payload[1] = $payload[1] / 10000;
@@ -96,7 +96,10 @@ while ($round_m < 10)
     }
 }
 
-date_default_timezone_set('America/Los_Angeles');
+$command = 'python find_timezone.py --lat '.$payload[1].' --lon '.$payload[2];
+$timezone = exec($command);
+
+date_default_timezone_set($timezone);
 $timestamp = 'Updated: '.date('H:i');
 
 
